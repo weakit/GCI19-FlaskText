@@ -7,12 +7,12 @@
     <link
         href="data:image/x-icon;base64,AAABAAEAEhIAAAEAIACABQAAFgAAACgAAAASAAAAJAAAAAEAIAAAAAAAEAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADWAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9AAAAfQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAfQAAAP0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9AAAAfQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAfQAAAP0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9AAAAfQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAfQAAAP0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+AAAAfgAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAfgAAAP4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+AAAAfgAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAfgAAAP4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+AAAAfgAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAfgAAAP4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAfwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAfwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAfwAAAAAAAAAAAAAAAAAAAAAAAAAvAAAAvwAAAL8AAAC/AAAA3wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA/wAAAP8AAAD/AAAA/wAAAHQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA/wAAAP8AAAD/AAAAdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA/wAAAP8AAAB0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAHQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//8AA4AHAAOABwADgAcAA4AHAAOABwADgAcAA4AHAAOABwADn+cAA5/nAAOeBwADngcAA54PAAOeHwADgD8AA4B/AAP//wAA="
         rel="icon" type="image/x-icon" />
-    <title>FlaskText</title>
+    <title>{{ name }}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -21,7 +21,6 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
-    <script src="{{ url_for('static', filename='js.js') }}"></script>
 </head>
 
 <body class="bg-warning text-dark">
@@ -36,37 +35,13 @@
         <p class="lead">A simple webapp to store your text files.</p>
     </div>
 
-    {{ errors }}
-
-    <div class="pt-3 container">
+    <div class="pt-3 pb-5 container">
         <div class="list-group text-body">
-            <ul class="list-group-item clearfix">
-                <form action="{{ url_for('root') }}" method="POST" enctype="multipart/form-data">
-                    <div class="float-left clearfix pt-2 pb-3">
-                        <span class="h5 text-body">Get your textfile here.</span>
-                    </div>
-                    <div class="pt-3">
-                        <input id="name" name="name" type="name" class="form-control" placeholder="Text Name">
-                    </div>
-                    <div class="pt-3 input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Upload</span>
-                        </div>
-                        <div class="custom-file">
-                            <input id="file" name="file" type="file" class="custom-file-input" id="file" required>
-                            <label class="custom-file-label" for="file">Choose file</label>
-                        </div>
-                    </div>
-                    <div class="float-right clearfix">
-                        <button id="submit" name="submit" class="text-center btn btn-dark">Create</input>
-                    </div>
-                    {{ form.csrf_token }}
-                </form>
-            </ul>
+            <div class="list-group-item">
+                <h2 class="pb-2">{{ name }}</h2>
+                <span class="desc">{{ text }}
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="container pb-5">
-        <div id="files" class="pt-3 list-group text-body">{{ texts }}</div>
     </div>
 </body>

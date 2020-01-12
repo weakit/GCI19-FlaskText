@@ -9,6 +9,10 @@ body {
   background-color: rgba(0, 0, 0, 0) !important;
 }
 
+.link {
+  cursor: pointer;
+}
+
 .h5 {
   font-family: -apple-system, BlinkMacSystemFont, "IBM Plex Sans", "Helvetica",
     "Arial", sans-serif !important;
