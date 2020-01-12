@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans|IBM+Plex+Mono&display=swap");
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "IBM Plex Sans", "Helvetica",
+    "Arial", sans-serif !important;
+  font-kerning: normal;
+}
+
+#nav {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.h5 {
+  font-family: -apple-system, BlinkMacSystemFont, "IBM Plex Sans", "Helvetica",
+    "Arial", sans-serif !important;
+}
+
+.desc {
+  font-family: "IBM Plex Mono", monospace !important;
+  white-space: pre-wrap;
+}
+
+html::-webkit-scrollbar-button {
+  display: none;
+  height: 13px;
+  border-radius: 0px;
+  background-color: #aaa;
+}
+html::-webkit-scrollbar-button:hover {
+  background-color: #aaa;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #343a40;
+}
+html::-webkit-scrollbar-track {
+  background-color: #ffc107;
+}
+html::-webkit-scrollbar {
+  width: 5px;
+}

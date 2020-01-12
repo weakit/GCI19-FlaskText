@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Flask Text Storage">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="data:image/x-icon;base64,AAABAAEAEhIAAAEAIACABQAAFgAAACgAAAASAAAAJAAAAAEAIAAAAAAAEAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADWAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9AAAAfQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAfQAAAP0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9AAAAfQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAfQAAAP0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9AAAAfQAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAfQAAAP0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+AAAAfgAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAfgAAAP4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+AAAAfgAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAfgAAAP4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+AAAAfgAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAfgAAAP4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAfwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAfwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAfwAAAAAAAAAAAAAAAAAAAAAAAAAvAAAAvwAAAL8AAAC/AAAA3wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA/wAAAP8AAAD/AAAA/wAAAHQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA/wAAAP8AAAD/AAAAdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA/wAAAP8AAAB0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAHQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//8AA4AHAAOABwADgAcAA4AHAAOABwADgAcAA4AHAAOABwADn+cAA5/nAAOeBwADngcAA54PAAOeHwADgD8AA4B/AAP//wAA="
+        rel="icon" type="image/x-icon" />
+    <title>FlaskText</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body class="bg-warning text-dark">
+    <nav id="nav" class="navbar">
+        <span class="navbar-text text-muted"></span>
+        <a href="https://github.com/weakit/GCI19-FlaskText"><span class="navbar-text text-muted">View on Github</span></a>
+    </nav>
+
+    <div class="container">
+        <span class="display-4">FlaskText</span>
+        <p class="lead">A simple webapp to store your text files.</p>
+    </div>
+
+    <div class="pt-3 container">
+        <div class="list-group text-body">
+            <ul class="list-group-item clearfix">
+                <div class="float-left clearfix pt-2 pb-3">
+                    <span class="h5 text-body">Get your textfile here.</span>
+                </div>
+                <div class="pt-3">
+                    <input id="name" type="name" class="form-control" placeholder="Text Name">
+                </div>
+                <div class="pt-3 input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="file">
+                        <label class="custom-file-label" for="file">Choose file</label>
+                    </div>
+                </div>
+                <div class="float-right clearfix">
+                    <span class="text-center btn btn-dark">Create</span>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container pb-5">
+        <div id="files" class="pt-3 list-group text-body">
+            <a onclick="open_link(this);" class="list-group-item list-group-item-action clearfix">
+                <div class="link text-muted">
+                    <span class="h5 align-middle text-body mb-3">Text Name<br /></span>
+                    <span class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Nec feugiat in fermentum posuere urna nec tincidunt praesent.</span>
+                </div>
+            </a>
+            <a onclick="open_link(this);" class="list-group-item list-group-item-action clearfix">
+                <div class="link text-muted">
+                    <span class="h5 align-middle text-body mb-3">Text Name<br /></span>
+                    <span class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Nec feugiat in fermentum posuere urna nec tincidunt praesent.</span>
+                </div>
+            </a>
+            <a onclick="open_link(this);" class="list-group-item list-group-item-action clearfix">
+                <div class="link text-muted">
+                    <span class="h5 align-middle text-body mb-3">Text Name<br /></span>
+                    <span class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Nec feugiat in fermentum posuere urna nec tincidunt praesent.</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
